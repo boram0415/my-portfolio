@@ -7,6 +7,8 @@ title: Boram Kim
 > 운영 중인 전자세금계산서 서비스를 이해하고,  
 > 장애 대응에서 기능 개발, 보안 조치, 인프라 개선까지 끝까지 가져가는 백엔드 개발자입니다.
 
+![김보람 프로필 사진](assets/profile.jpeg)
+
 `Java` `Spring Boot` `JPA` `MySQL` `Linux` `Tomcat` `Apache` `Git` `API` `운영 자동화`
 
 ---
