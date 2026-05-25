@@ -1,3 +1,125 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+.page {
+  max-width: 1440px;
+}
+
+.page > #quartz-body {
+  column-gap: 2.5rem;
+}
+
+.page > #quartz-body .sidebar {
+  padding-top: 5rem;
+}
+
+.page > #quartz-body .sidebar.left {
+  align-items: flex-start;
+}
+
+.page > #quartz-body .sidebar.right {
+  gap: 1rem;
+}
+
+.page > #quartz-body .center {
+  max-width: 780px;
+}
+
+.page > #quartz-body .page-header {
+  display: none;
+}
+
+.page > #quartz-body footer {
+  display: none;
+}
+
+article h1:first-child {
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.12;
+  margin-top: 5rem;
+  margin-bottom: 1.25rem;
+}
+
+article > blockquote:first-of-type {
+  border-left: 4px solid var(--secondary);
+  margin: 0 0 1.25rem 0;
+  padding: 0.1rem 0 0.1rem 1.25rem;
+}
+
+article > p:has(code) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.5rem 0 2.25rem;
+}
+
+article > p:has(code) code {
+  border: 1px solid var(--lightgray);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--dark);
+  font-size: 0.86rem;
+  padding: 0.28rem 0.7rem;
+}
+
+article > hr {
+  margin: 2rem 0;
+  opacity: 0.35;
+}
+
+article h2 {
+  font-size: 1.55rem;
+  margin-top: 2.5rem;
+}
+
+article h3 {
+  font-size: 1.12rem;
+  margin-top: 1.8rem;
+}
+
+.toc {
+  border-left: 1px solid var(--lightgray);
+  padding-left: 1.2rem;
+  max-height: calc(100vh - 10rem);
+}
+
+button#toc h3 {
+  font-size: 0.95rem;
+}
+
+#toc-content ul > li > a {
+  font-size: 0.9rem;
+  line-height: 1.45rem;
+}
+
+@media all and (max-width: 1200px) {
+  .page > #quartz-body .sidebar.right {
+    display: none;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .page > #quartz-body .sidebar.left {
+    justify-content: center;
+    padding: 2rem 1rem 0;
+  }
+
+  .page > #quartz-body .center {
+    max-width: none;
+  }
+
+  article h1:first-child {
+    margin-top: 2.25rem;
+    text-align: center;
+    font-size: clamp(1.85rem, 9vw, 2.6rem);
+  }
+
+  article > blockquote:first-of-type {
+    margin-top: 1rem;
+  }
+
+  article > p:has(code) {
+    justify-content: center;
+  }
+}
