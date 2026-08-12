@@ -83,13 +83,16 @@ CRUD 기능 구현보다 운영 데이터의 상태 변화, 재처리 기준, �
 ### 4. 보안 패치와 라이브 서버 반영
 
 **문제**  
-SSL/TLS, SQL Injection, Apache 버전 취약점처럼 운영 서비스에 직접 영향을 줄 수 있는 보안 조치가 필요했습니다.
+SSL/TLS, SQL Injection, Apache 버전 취약점, 전자서명 강도 상향(RSA 2048 → 3072bit)처럼 운영 서비스에 직접 영향을 줄 수 있는 보안 조치가 필요했습니다.
 
 **접근**  
-영향도 분석, 설정 변경, 테스트, 배포, 문서화까지 진행했습니다. 특히 Apache 2.4.6에서 2.4.64로 업그레이드한 뒤 라이브 서버에 반영했고, 기존 mod_jk 기반 WAS 연동 구조의 호환성을 함께 확인했습니다.
+영향도 분석, 설정 변경, 테스트, 배포, 문서화까지 진행했습니다.
+
+- Apache 2.4.6에서 2.4.64로 업그레이드한 뒤 라이브 서버에 반영했고, 기존 mod_jk 기반 WAS 연동 구조의 호환성을 함께 확인했습니다.
+- RSA 서명 비트가 2048에서 3072로 상향되는 요건에 맞춰 기존 전자서명 모듈을 신규 모듈로 교체 적용했습니다. 발행 흐름 안의 서명 호출부를 신규 모듈에 맞춰 재연동하고, 인증서·모듈 버전 조합에 대한 회귀 테스트를 거쳐 라이브에 반영했습니다. (암호화 로직 자체를 구현한 것은 아니고, 발행 시스템과의 통합 및 교체 개발을 담당했습니다.)
 
 **기술**  
-`Apache` `Tomcat` `mod_jk` `SSL/TLS` `DNS DCV` `SQL Injection 차단`
+`Apache` `Tomcat` `mod_jk` `SSL/TLS` `DNS DCV` `SQL Injection 차단` `RSA 2048→3072` `전자서명 모듈 교체`
 
 **강점**  
 보안 점검 결과를 실제 운영 작업으로 쪼개고, 서비스 영향도를 확인하면서 반영할 수 있습니다.
@@ -167,7 +170,7 @@ LLM 자체를 구축한 것은 아니지만, AI 처리 결과를 사용자가 �
 `Oracle` `Oracle Materialized View` `MySQL` `SQL Tuning` `Data Sync` `Operational Query`
 
 **Infra / Security**  
-`Linux` `Apache` `Tomcat` `mod_jk` `SSL/TLS` `DNS DCV` `SQL Injection 대응`
+`Linux` `Apache` `Tomcat` `mod_jk` `SSL/TLS` `DNS DCV` `SQL Injection 대응` `RSA 2048→3072` `전자서명 모듈 교체`
 
 **Operation**  
 `Troubleshooting` `Log Analysis` `Monitoring` `Deployment Automation` `Documentation` `CVS → Git 전환`
