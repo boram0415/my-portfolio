@@ -4,8 +4,8 @@ title: Boram Kim
 
 # 대량 트랜잭션과 외부 시스템 연동 실무에 강한 백엔드 개발자
 
-> 수천 개 고객사가 사용하는 서비스에서  
-> 월 120만 건 규모 발행 트랜잭션 운영, RSA 3072bit 서명 모듈 직접 개발, 다양한 외부 시스템 연동 실무 경험
+> 세금계산서 SaaS 백엔드 + PG 재정산 솔루션 유지보수 경험  
+> 수천 개 고객사, 월 120만 건 규모 발행 트랜잭션, RSA 3072bit 서명 모듈 직접 개발, 다양한 외부 시스템 연동 실무
 
 `Java` `Spring Framework` `Spring Boot` `JSP` `MyBatis` `Oracle` `MySQL` `REST API` `Linux` `Apache/Tomcat` `Bouncy Castle` `Git`
 
